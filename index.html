@@ -10,18 +10,29 @@
 </head>
 <body>
   <div id="root">
-    <div class="container-slider">
-      <div class="arrows prev" @click="prev">
-        <i class="fas fa-chevron-left"></i>
-      </div>
-      <div class="slider-slides">
-        <img width="700px" :src="arrayImgs[index]" alt="">
+    <div class="slider">
+      <div class="container-slider">
+        <div class="arrows prev" @click="prev">
+          <i class="fas fa-chevron-left"></i>
+        </div>
+        <div class="slider-slides">
+          <img width="700px" :src="arrayImgs[index]" alt="">
 
+        </div>
+        <div class="arrows next" @click="next">
+          <i class="fas fa-chevron-right"></i>
+        </div>
       </div>
-      <div class="arrows next" @click="next">
-        <i class="fas fa-chevron-right"></i>
-      </div>
+      <nav class="slider-navigation">
+        <i v-for="dot in arrayImgs.length"
+          class="fas fa-circle"
+          :class="(dot - 1 == index) ? 'active' : '' "
+          @click="dotSelection(dot - 1)"
+          ></i>
+      </nav>
     </div>
+
+
   </div>
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 <script src="./main.js" charset="utf-8"></script>

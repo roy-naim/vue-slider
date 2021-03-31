@@ -25,6 +25,9 @@ var app = new Vue(
       } else {
         this.index = this.arrayImgs.length - 1;
       }
+    },
+    dotSelection: function (index) {
+      this.index = index;
     }
   }
 });
